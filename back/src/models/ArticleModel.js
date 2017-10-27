@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'; // middleware mongoose
 
+// Création du Schema et model
 const Schema = mongoose.Schema;
 let NewArticle = new Schema({
   title : {
