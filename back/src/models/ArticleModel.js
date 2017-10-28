@@ -3,6 +3,10 @@ import mongoose from 'mongoose'; // middleware mongoose
 // Création du Schema et model
 const Schema = mongoose.Schema;
 let NewArticle = new Schema({
+  author : {
+    type : String,
+    required : true
+  },
   title : {
   type : String,
   required : true
@@ -10,6 +14,10 @@ let NewArticle = new Schema({
   article : {
     type : String,
     required : true
+  },
+  date : {
+    type : Date,
+    default: Date.now
   },
   comment : [
     {
