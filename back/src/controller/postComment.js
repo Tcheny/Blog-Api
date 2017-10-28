@@ -13,9 +13,8 @@ api.post('/:id/comment/add', ( req, res ) => {
   let newComment = new Comment( req.body );
   newComment.save( (err, comment) => {
     if ( err ) return res.send( err );
-    Article.findByIdAndUpdate(req.params.id, { $push : { comment }}, ( err, article ) => {
-      console.log(comment);
-      if (err) return res.send(err);
+    Article.findByIdAndUpdate(req.params.id, { $push : { comment : comment._id }}, ( err, article ) => {
+      if ( err ) return res.send( err );
       res.json({ message : `Comment has been created` });
     });
   });
