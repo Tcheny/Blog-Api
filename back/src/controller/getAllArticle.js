@@ -8,10 +8,10 @@ const api = express.Router();
 // Récupère tous les articles
 // route /app/blog/
 // ============================
-api.get('/', (req, res) => {
-  Article.find({}, (err, articles)=> {
-    if (err) return res.send(err);
-    res.send(articles)
+api.get('/', ( req, res ) => {
+  Article.find( {}, ( err, articles )=> {
+    if ( err ) return res.send( err );
+    res.send( articles )
   });
 });
 

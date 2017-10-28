@@ -10,7 +10,7 @@ const api = express.Router();
 // ============================
 api.get('/delete/:id', ( req, res ) => {
   Article.findByIdAndRemove(req.params.id, req.body, err => {
-    if ( err ) return res.send(err);
+    if ( err ) return res.send( err );
     res.json({ success : `Article was remove` })
   })
 });
