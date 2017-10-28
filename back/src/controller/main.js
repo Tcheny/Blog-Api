@@ -4,13 +4,15 @@ import express from 'express';
 import GetAllArticle from './getAllArticle';
 import GetArticle from './getArticle';
 import PostArticle from './postArticle';
+import UpdateArticle from './updateArticle';
 import DeleteArticle from './deleteArticle';
 
 const api = express.Router();
 
-api.use(GetAllArticle);
-api.use(GetArticle);
-api.use(PostArticle);
-api.use(DeleteArticle);
+api.use( GetAllArticle );
+api.use( GetArticle );
+api.use( PostArticle );
+api.use( UpdateArticle );
+api.use( DeleteArticle );
 
 export default api;
