@@ -18,13 +18,7 @@ let NewComment = new Schema({
   date : {
     type : Date,
     default: Date.now
-  },
-  blog : [
-    {
-    type : Schema.Types.ObjectId,
-    ref : 'Comment'
   }
-]
 },{ versionKey : false });
 
 export default mongoose.model('Comment', NewComment);
