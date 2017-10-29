@@ -6,16 +6,16 @@ import Comment from '../models/CommentModel';
 const api = express.Router();
 
 // POST
-// Ajoute un commentaire a un article
+// Ajouter un commentaire à un article
 // route /app/blog/:id/comment/add
 // ============================
 api.post('/:id/comment/add', ( req, res ) => {
-  let newComment = new Comment( req.body );
-  newComment.save( (err, comment) => {
+  const newComment = new Comment( req.body );
+  newComment.save((err, comment) => {
     if ( err ) return res.send( err );
     Article.findByIdAndUpdate(req.params.id, { $push : { comment : comment._id }}, ( err, article ) => {
       if ( err ) return res.send( err );
-      res.json({ message : `Comment has been created` });
+      res.json({ success : `Comment has been created` });
     });
   });
 });
