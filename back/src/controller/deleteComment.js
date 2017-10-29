@@ -14,7 +14,7 @@ api.get('/:id/comment/:commentid/delete', ( req, res ) => {
     if ( err ) return res.send( err );
     Article.findByIdAndUpdate( req.params.id, { $pull : { comment : deleteComment._id }}, err => {
       if ( err ) return res.send( err );
-      res.json({ message : `Comment has been deleted` });
+      res.json({ success : `Comment has been deleted` });
     });
   });
 });
