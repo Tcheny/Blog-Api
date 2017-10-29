@@ -6,8 +6,10 @@ import GetArticle from './getArticle';
 import PostArticle from './postArticle';
 import UpdateArticle from './updateArticle';
 import DeleteArticle from './deleteArticle';
-import PostComment from './postComment';
+
 import GetComment from './getComment';
+import PostComment from './postComment';
+import UpdateComment from './updateComment';
 import DeleteComment from './deleteComment';
 
 const api = express.Router();
@@ -17,8 +19,10 @@ api.use( GetArticle );
 api.use( PostArticle );
 api.use( UpdateArticle );
 api.use( DeleteArticle );
-api.use( PostComment );
+
 api.use( GetComment );
+api.use( PostComment );
+api.use( UpdateComment );
 api.use( DeleteComment );
 
 export default api;
