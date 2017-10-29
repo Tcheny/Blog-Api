@@ -15,7 +15,7 @@ api.get('/:id/comment', ( req, res ) => {
          .exec(( err, article ) => {
            if ( err ) return res.send( err );
            res.send( article.comment );
-         } );
+         });
 });
 
 export default api;
