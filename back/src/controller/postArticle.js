@@ -11,8 +11,8 @@ const api = express.Router();
 api.post('/add', ( req, res ) => {
   const newArticle = new Article( req.body );
   newArticle.save( err => {
-    if ( err ) return res.send( err );
-    return res.json({ success : `New article added` })
+    if(err) return res.redirect('http://localhost:3000/');
+    res.redirect('http://localhost:3000/')
   });
 });
 
