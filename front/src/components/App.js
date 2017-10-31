@@ -9,26 +9,17 @@ import config from '../config';
 import Article from './Article.js';
 import Blog from './Blog.js';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
       allArticles : []
     };
   }
 
-    handleOpen = () => {
-      this.setState({showModal: true});
-    };
-
-    handleClose = () => {
-      this.setState({showModal: false});
-    };
-
   componentDidMount() {
     request(config.url, (err, res, body)=> {
+      if(err);
       this.setState({
         allArticles : JSON.parse(body)
       });
@@ -38,14 +29,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to My Blog</h1>
-        </header>
         <MuiThemeProvider>
-          <Article showModal={this.state.showModal} isOpen={this.handleOpen} isClose={this.handleClose}/>
-        </MuiThemeProvider>
+          <header className="App-header">
+            <h1 className="App-title">Welcome to My Blog</h1>
+          </header>
+          <Article/>
 
-        <Blog article={this.state.allArticles}/>
+          <Blog article={this.state.allArticles}/>
+        </MuiThemeProvider>
       </div>
     );
   }

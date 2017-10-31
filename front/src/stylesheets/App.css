@@ -3,8 +3,8 @@
   margin: 40px;
 }
 .card {
-  margin: 20px 0;
-  height: 400px;
+  margin: 20px 10px;
+  height: 200px;
   overflow: auto;
 
   border-radius: 10px !important;
@@ -18,4 +18,7 @@
 }
 .Article {
   text-align: center;
+}
+li {
+  list-style: none;
 }
