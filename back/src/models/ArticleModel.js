@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'; // middleware mongoose
+import moment from 'moment';
 
 // Création du Schema et model
 const Schema = mongoose.Schema;
@@ -16,8 +17,8 @@ let NewArticle = new Schema({
     required : true
   },
   date : {
-    type : Date,
-    default: Date.now
+    type : String,
+    default: moment().format('YYYY-MM-DD, h:mm a')
   },
   comment : [
     {
