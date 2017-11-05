@@ -9,10 +9,10 @@ const api = express.Router();
 // route /app/blog/delete/:id
 // ============================
 api.get('/delete/:id', ( req, res ) => {
-  Article.findByIdAndRemove(req.params.id, req.body, err => {
+  Article.findByIdAndRemove( req.params.id, err => {
     if ( err ) return res.send( err );
-    res.json({ success : `Article was remove` })
-  })
+    res.redirect( 'http://localhost:3000/' );
+  });
 });
 
 export default api;

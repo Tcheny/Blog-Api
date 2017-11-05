@@ -18,7 +18,7 @@ let NewArticle = new Schema({
   },
   date : {
     type : String,
-    default: moment().format('YYYY-MM-DD, h:mm a')
+    default: moment().format('YYYY/MM/DD, h:mm A')
   },
   comment : [
     {

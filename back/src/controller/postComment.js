@@ -11,11 +11,11 @@ const api = express.Router();
 // ============================
 api.post('/:id/comment/add', ( req, res ) => {
   const newComment = new Comment( req.body );
-  newComment.save((err, comment) => {
+  newComment.save(( err, comment ) => {
     if ( err ) return res.send( err );
-    Article.findByIdAndUpdate(req.params.id, { $push : { comment : comment._id }}, ( err, article ) => {
-      if ( err ) return res.send( err );
-      res.json({ success : `Comment has been created` });
+    Article.findByIdAndUpdate( req.params.id, { $push : { comment : comment._id }}, ( err, article ) => {
+      if ( err ) return res.redirect( 'http://localhost:3000/' );
+      res.redirect( 'http://localhost:3000/' );
     });
   });
 });

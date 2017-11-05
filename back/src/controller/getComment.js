@@ -11,10 +11,10 @@ const api = express.Router();
 // ============================
 api.get('/:id/comment', ( req, res ) => {
   Article.findById( req.params.id )
-         .populate('comment')
+         .populate( 'comment' )
          .exec(( err, article ) => {
-           if ( err ) return res.send( err );
-           res.send( article.comment );
+           if ( err ) return res.redirect( 'http://localhost:3000/' );
+           res.json( 'http://localhost:3000/' )
          });
 });
 

@@ -9,10 +9,12 @@ const api = express.Router();
 // route /app/blog/
 // ============================
 api.get('/', ( req, res ) => {
-  Article.find( {}, ( err, articles )=> {
-    if ( err ) return res.send( err );
-    res.send( articles )
-  });
+  Article.find()
+         .populate( 'comment' )
+         .exec(( err, articles )=> {
+           if ( err ) return res.send( err );
+           res.json( articles )
+      });
 });
 
 export default api;

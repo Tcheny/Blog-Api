@@ -1,14 +1,16 @@
 .App-title {
   text-align: center;
   margin: 40px;
+  color: #FFF;
+  text-shadow: 4px 4px 10px #000;
 }
 .card {
   margin: 20px 10px;
   height: 200px;
   overflow: auto;
 
-  border-radius: 10px !important;
-  box-shadow: 5px 5px 10px #bfbebe;
+  border-radius: 5px !important;
+  box-shadow: 5px 5px 20px #4b4b4b;
 }
 .card-title {
   text-align: left;
@@ -21,4 +23,35 @@
 }
 li {
   list-style: none;
+}
+.container-modal {
+  margin: 20px;
+}
+.title-modal {
+  margin-bottom: 30px;
+}
+.body-modal {
+  margin: 20px;
+  text-align: justify;
+}
+.footer-modal {
+  text-align: right;
+}
+form {
+  background-color: #fff9f9;
+  padding: 0 50px;
+  width: 70%;
+  margin: auto;
+}
+.form-comment {
+  padding: 10px 50px;
+  width: 70%;
+  margin: auto;
+  background-color: #fff9f9;
+}
+.Comment {
+  border-bottom: 1px solid rgb(218, 218, 218);
+  width:90%;
+  margin: auto;
+  padding: 10px;
 }

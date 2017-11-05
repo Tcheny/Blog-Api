@@ -9,7 +9,7 @@ const api = express.Router();
 // route /app/blog/:id
 // ============================
 api.get('/:id', ( req, res ) => {
-  Article.findById(req.params.id, ( err, article ) => {
+  Article.findById( req.params.id, ( err, article ) => {
     if ( err ) return res.send( err );
     res.send( article )
   });

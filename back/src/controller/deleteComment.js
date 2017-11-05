@@ -10,11 +10,11 @@ const api = express.Router();
 // route /app/blog/:id/comment/:commentid/delete
 // ============================
 api.get('/:id/comment/:commentid/delete', ( req, res ) => {
-  Comment.findByIdAndRemove(req.params.commentid, ( err, deleteComment ) => {
+  Comment.findByIdAndRemove( req.params.commentid, ( err, deleteComment ) => {
     if ( err ) return res.send( err );
     Article.findByIdAndUpdate( req.params.id, { $pull : { comment : deleteComment._id }}, err => {
-      if ( err ) return res.send( err );
-      res.json({ success : `Comment has been deleted` });
+      if ( err ) return res.redirect( 'http://localhost:3000' );
+      res.redirect( 'http://localhost:3000' );
     });
   });
 });

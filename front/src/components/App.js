@@ -6,8 +6,8 @@ import '../stylesheets/App.css';
 import 'spectre.css/dist/spectre.min.css';
 
 import config from '../config';
-import Article from './Article.js';
-import Blog from './Blog.js';
+import NewArticle from './NewArticle.js';
+import AllArticles from './AllArticles.js';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     request(config.url, (err, res, body)=> {
-      if(err);
+      if(err) return res.send(err);
       this.setState({
         allArticles : JSON.parse(body)
       });
@@ -29,13 +29,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="App-header">
+          <h1 className="App-title">Welcome to My Blog</h1>
+        </div>
         <MuiThemeProvider>
-          <header className="App-header">
-            <h1 className="App-title">Welcome to My Blog</h1>
-          </header>
-          <Article/>
 
-          <Blog article={this.state.allArticles}/>
+          <NewArticle/>
+
+          <AllArticles articles={this.state.allArticles}/>
+
         </MuiThemeProvider>
       </div>
     );
