@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 let NewComment = new Schema({
   author : {
     type : String,
-    required : false
+    required : true
   },
   comment : {
     type :  String,

@@ -2,10 +2,17 @@
   text-align: center;
   margin: 40px;
   color: #FFF;
-  text-shadow: 4px 4px 10px #000;
+  text-shadow: 5px 5px 5px #000;
+  letter-spacing: 1px;
+}
+.btn-custom {
+  margin: 20px;
+}
+a {
+  cursor: pointer;
 }
 .card {
-  margin: 20px 10px;
+  margin: 20px 20px;
   height: 200px;
   overflow: auto;
 
@@ -54,4 +61,12 @@ form {
   width:90%;
   margin: auto;
   padding: 10px;
+}
+.readMore {
+  text-decoration: none;
+  color : #5c5a5a;
+}
+.readMore:hover {
+  text-decoration: none;
+  color : #000;
 }
