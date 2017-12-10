@@ -6,11 +6,11 @@ const Schema = mongoose.Schema;
 let NewComment = new Schema({
   author : {
     type : String,
-    required : true
+    required : false
   },
   comment : {
     type :  String,
-    required : true
+    required : false
   },
   date : {
     type : String,

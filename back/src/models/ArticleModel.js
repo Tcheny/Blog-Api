@@ -20,6 +20,10 @@ let NewArticle = new Schema({
     type : String,
     default: moment().format('YYYY/MM/DD, h:mm A')
   },
+  image : {
+    type : String,
+    required :  false
+  },
   comment : [
     {
       type: Schema.Types.ObjectId,

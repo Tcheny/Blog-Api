@@ -6,11 +6,11 @@ import route from './route/route'; // route
 
 const app = express();
 
-// Parse le formulaire 'urlencoded'
+// Parser le formulaire 'urlencoded'
 app.use(express.urlencoded({ extended: false }));
-// Utilise cors
+// Utilise cors 'Cross-origin'
 app.use(cors());
-// Utilise la route '/app...' puis appelle les autres routes du controller
+// Utilise la route '/app...' puis appelle route
 app.use('/app', route);
 
 // Lance le server

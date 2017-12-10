@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// Material-ui
 import Dialog from "material-ui/Dialog";
 import RaisedButton from "material-ui/RaisedButton";
 
@@ -8,6 +9,11 @@ const customWitdhModal = {
   width: "70%",
   maxWidth: "none"
 };
+const style = {
+  margin: 32,
+  height: 45,
+  width: 300,
+};
 
 class NewArticle extends Component {
   constructor(props) {
@@ -16,6 +22,8 @@ class NewArticle extends Component {
       showModal: false
     };
   }
+
+  // Gestion du Dialog
   handleOpen = () => {
     this.setState({ showModal: true });
   };
@@ -28,13 +36,14 @@ class NewArticle extends Component {
     return (
       <div className="Article">
         <RaisedButton
-          className="btn-custom"
           label="New Article"
-          primary={true}
           onClick={this.handleOpen}
+          secondary={true}
+          style={style}
         />
         <Dialog
           title="Add New Article"
+          titleStyle={{textAlign: 'center', fontSize: '2em'}}
           modal={false}
           contentStyle={customWitdhModal}
           open={this.state.showModal}
@@ -44,13 +53,15 @@ class NewArticle extends Component {
           <Form
             isClose={this.handleClose}
             action="http://localhost:8080/app/blog/add"
+            encType="multipart/form-data"
             method="POST"
             title="title"
             author="author"
             textarea="article"
             labelAuthor="Author"
-            placeholderAuthor="Author"
+            placeholderAuthor="Who are you ?"
             label="Article"
+            image="Add picture"
             placeholder="Let's write your Article..."
           />
         </Dialog>

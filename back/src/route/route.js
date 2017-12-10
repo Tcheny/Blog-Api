@@ -7,6 +7,7 @@ import controller from '../controller/main'; // route du controller
 const router = express.Router(); // Router de express
 
 // Connection à la DB
+mongoose.Promise = global.Promise;
 mongoose.connect( config.mongoUrl, { useMongoClient: true }, () => {
   console.log( 'MongoDB initialized...' );
 });

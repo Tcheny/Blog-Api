@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+// Material-ui
 import Dialog from "material-ui/Dialog";
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Form from "./Form";
 import Comment from "./Comment";
@@ -14,20 +16,23 @@ class AllArticles extends Component {
     super(props);
     this.state = {
       showModal: false,
-      thisArticle: ""
+      anArticle: ""
     };
   }
 
+  // À l'ouverture du 'Dialog'
+  // récupère l'article ciblé grâce à son index
   handleOpen = index => {
     this.setState(
       {
         showModal: true,
-        thisArticle: this.props.articles[index]
+        anArticle: this.props.articles[index]
       },
-      () => this.state.thisArticle
+      () => this.state.anArticle
     );
   };
 
+  // Ferme le 'Dialog'
   handleClose = () => {
     this.setState({ showModal: false });
   };
@@ -42,47 +47,59 @@ class AllArticles extends Component {
                 <div className="card">
                   <div className="card-header">
                     <a href={`http://localhost:8080/app/blog/delete/${article._id}`}
-                      className="btn btn-clear float-right"
-                    />
-                    <ul className="card-title h5">
+                      className=" float-right"
+                    >
+                      <span className="btn btn-tooltip tooltip tooltip-left" data-tooltip="remove">x</span>
+                    </a>
+                    <ul>
                       <li key={index}>
-                        <a onClick={() => this.handleOpen(index)}>
-                          {article.title}
+                        <a className="card-a" onClick={() => this.handleOpen(index)}>
+                          <h5 className="card-title">{article.title}</h5>
                         </a>
+                        <p className="card-article">{article.article}</p>
                       </li>
                       <Dialog
+                        title={this.state.anArticle.title}
+                        titleStyle={{textAlign: 'center', fontSize: '2em'}}
                         modal={false}
                         contentStyle={customWitdhModal}
                         open={this.state.showModal}
                         onRequestClose={this.handleClose}
                         autoScrollBodyContent={true}
+                        overlayStyle={{
+                          backgroundColor: 'rgba(0, 0, 0, 0.14)'
+                        }}
                       >
                         <div className="container">
-                          {this.state.thisArticle && (
+                          {this.state.anArticle && (
                             <div className="container-modal">
-                              <div className="title-modal">
-                                <h3>{this.state.thisArticle.title}</h3>
-                              </div>
+                              {this.state.anArticle.image &&
+                                <div className="imageArticle">
+                                  <img src={`my_uploads/${this.state.anArticle.image}`} alt="article"/>
+                                </div>
+                              }
                               <div className="body-modal">
                                 <div className="content">
-                                  {this.state.thisArticle.article}
+                                  {this.state.anArticle.article}
                                 </div>
                               </div>
                               <div className="footer-modal">
-                                By {this.state.thisArticle.author}, <br />
-                                {this.state.thisArticle.date}
+                                By {this.state.anArticle.author},
+                                <br />
+                                {this.state.anArticle.date}
                               </div>
 
-                              <Comment thisComment={this.state.thisArticle} />
+                              <Comment aComment={this.state.anArticle} />
 
                               <Form isClose={this.handleClose}
-                                isInput={this.state.thisArticle}
-                                action={`http://localhost:8080/app/blog/${this.state.thisArticle._id}/comment/add`}
+                                isInput={this.state.anArticle}
+                                action={`http://localhost:8080/app/blog/${this.state.anArticle._id}/comment/add`}
                                 method="POST"
+                                encType="application/x-www-form-urlencoded"
                                 author="author"
                                 textarea="comment"
-                                labelAuthor="Name"
-                                placeholderAuthor="Name"
+                                labelAuthor="Who are you ?"
+                                placeholderAuthor="Enter your name"
                                 label="Response"
                                 placeholder="Your response..."
                               />
@@ -91,10 +108,10 @@ class AllArticles extends Component {
                         </div>
                       </Dialog>
                     </ul>
-                    <div className="card-subtitle text-gray">
-                      By {article.author}, <br />
-                      {article.date}
-                    </div>
+                  </div>
+                  <div className="card-subtitle text-gray">
+                    By {article.author}, <br />
+                    {article.date}
                   </div>
                 </div>
               </div>

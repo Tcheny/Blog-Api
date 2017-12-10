@@ -2,11 +2,19 @@
   text-align: center;
   margin: 40px;
   color: #FFF;
-  text-shadow: 5px 5px 5px #000;
+  font-weight: bold;
+  text-shadow: 5px 5px 13px #000;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
-.btn-custom {
-  margin: 20px;
+.App-p {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 7px 7px 15px #000, 7px 7px 15px #000;
+
 }
 a {
   cursor: pointer;
@@ -15,15 +23,26 @@ a {
   margin: 20px 20px;
   height: 200px;
   overflow: auto;
-
   border-radius: 5px !important;
   box-shadow: 5px 5px 20px #4b4b4b;
 }
 .card-title {
   text-align: left;
 }
-.card-body {
-  text-align: justify;
+.card-a {
+  color: #ac4bcd;
+}
+.card-a:hover {
+  transition: 0.5s;
+  color: #6c55df;
+  text-decoration: none;
+  text-shadow: 2px 2px 5px #915fa2;
+}
+.card-article {
+  white-space: nowrap;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .Article {
   text-align: center;
@@ -39,14 +58,14 @@ li {
 }
 .body-modal {
   margin: 20px;
-  text-align: justify;
+  text-align: center;
 }
 .footer-modal {
   text-align: right;
+  margin-bottom: 50px;
 }
 form {
-  background-color: #fff9f9;
-  padding: 0 50px;
+  padding: 20px 50px;
   width: 70%;
   margin: auto;
 }
@@ -54,7 +73,7 @@ form {
   padding: 10px 50px;
   width: 70%;
   margin: auto;
-  background-color: #fff9f9;
+  font-weight: bold;
 }
 .Comment {
   border-bottom: 1px solid rgb(218, 218, 218);
@@ -64,9 +83,35 @@ form {
 }
 .readMore {
   text-decoration: none;
-  color : #5c5a5a;
+  color : #5290c2;
 }
 .readMore:hover {
   text-decoration: none;
+  transition: 0.5s;
   color : #000;
+}
+.container-modal {
+  margin: auto;
+  width: 70%;
+}
+.imageArticle {
+  width: auto;
+  height: 200px;
+  overflow: hidden;
+  text-align: center;
+  margin: 20px 0;
+}
+.content {
+  margin: 40px 0;
+  letter-spacing: 0.7px;
+  line-height: 30px;
+  font-weight: 700;
+}
+.card-subtitle {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 20px;
+}
+.btn-custom {
+  color: #C51162;
 }

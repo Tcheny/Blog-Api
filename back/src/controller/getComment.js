@@ -14,7 +14,7 @@ api.get('/:id/comment', ( req, res ) => {
          .populate( 'comment' )
          .exec(( err, article ) => {
            if ( err ) return res.redirect( 'http://localhost:3000/' );
-           res.json( 'http://localhost:3000/' )
+           res.json( article )
          });
 });
 
